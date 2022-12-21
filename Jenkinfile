@@ -1,0 +1,13 @@
+pipeline{
+	agent any 
+	stages{
+		stage ('K8S Deploy') {
+       
+                kubernetesDeploy(
+                    configs: 'pod.yaml',
+                    kubeconfigId: 'chakriuser',
+                    enableConfigSubstitution: true
+                    )               
+        }
+	}
+}
